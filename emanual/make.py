@@ -21,8 +21,14 @@ info_tpl = {
 }
 
 root = Path('./markdown')
-if not root.exists():
-    raise IOError('Not found : dir ./markdown ')
+
+def check():
+    """
+    检查是否存在'./markdown'
+    :return:
+    """
+    if not root.exists():
+        raise IOError('Not found : dir ./markdown ')
 
 
 def gen_info(p):
@@ -59,6 +65,7 @@ def clean_up(path='./markdown'):
 
 def create_info():
     clean_up()
+    check()
     gen_info(root)
     print('Finish: generate info.json')
 
