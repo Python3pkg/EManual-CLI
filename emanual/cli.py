@@ -1,10 +1,23 @@
 # -*- coding: utf-8 -*-
-import click
+"""
+EManual CLI - Command Line Interface for EManual
+
+"""
+__version__ = '0.1'
+__author__ = 'Jayin Ton'
 
 from emanual import make
+import click
 
+def print_version(ctx, param, value):
+    if not value or ctx.resilient_parsing:
+        return
+    click.echo(__version__)
+    ctx.exit()
 
 @click.group()
+@click.option('--version', is_flag=True, callback=print_version,
+              expose_value=False, is_eager=True)
 def main():
     """
     Welecome to EManual!
