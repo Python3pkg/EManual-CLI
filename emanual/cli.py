@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
-"""
-EManual CLI - Command Line Interface for EManual
 
-"""
-__version__ = '0.1'
-__author__ = 'Jayin Ton'
 
-from emanual import make
+from emanual import make, __version__
 import click
 
 def print_version(ctx, param, value):
@@ -14,6 +9,7 @@ def print_version(ctx, param, value):
         return
     click.echo(__version__)
     ctx.exit()
+
 
 @click.group()
 @click.option('--version', is_flag=True, callback=print_version,

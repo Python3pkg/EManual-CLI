@@ -20,7 +20,6 @@ setup(
     license='MIT',
     packages=find_packages(),
     include_package_data=True,
-    py_moules=['emanual'],
     install_requires=[
         'Click',
         'path.py'
