@@ -1,19 +1,18 @@
 #!/usr/bin/env python
 # coding=utf-8
-"""
-EManual-CLI
------------
 
-Command Line Interface for EManual
-"""
 from setuptools import setup, find_packages
 import emanual
+
+with open('README.md') as f:
+    long_description = f.read()
+
 
 setup(
     name='emanual',
     version=emanual.__version__,
     description=emanual.__doc__.strip(),
-    long_description=__doc__,
+    long_description=long_description,
     url='https://github.com/EManual/EManual-CLI',
     author=emanual.__author__,
     author_email='tonjayin@gmail.name',

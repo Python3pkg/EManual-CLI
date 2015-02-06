@@ -4,6 +4,7 @@
 from emanual import make, __version__
 import click
 
+
 def print_version(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
@@ -13,10 +14,10 @@ def print_version(ctx, param, value):
 
 @click.group()
 @click.option('--version', is_flag=True, callback=print_version,
-              expose_value=False, is_eager=True)
+              expose_value=False, is_eager=True, help='Show the version')
 def main():
     """
-    Welecome to EManual!
+    Welecome to EManual CLI!
     """
     pass
 
