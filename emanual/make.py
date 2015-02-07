@@ -40,11 +40,13 @@ def gen_info(p):
     info['mode'] = MODE_TREE if p.isdir() else MODE_FILE
     info['name'] = p.name
     info['path'] = p.lstrip('./')
+    info['mtime'] = p.mtime
     for f in p.listdir():
         _file = copy.deepcopy(file_tpl)
+        _file['mode'] = MODE_TREE if f.isdir() else MODE_FILE
         _file['name'] = f.name
         _file['path'] = info['path'] + '/' + f.name
-        _file['mode'] = MODE_TREE if f.isdir() else MODE_FILE
+        _file['mtime'] = f.mtime
         info['files'].append(_file)
 
     with open(p + '/info.json', mode='w') as f:
