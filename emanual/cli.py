@@ -22,15 +22,15 @@ def main():
     pass
 
 
-@main.command()
-def create():
+@main.command('create')
+def create_info():
     """
     Create the info.json File
     """
     make.create_info()
 
 
-@main.command()
+@main.command('server')
 @click.option('--port', default=8000, help='port to listen')
 def server(port):
     """
