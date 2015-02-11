@@ -62,7 +62,7 @@ def clean_up(path='./markdown'):
     """
     import os
     os.system("find {path} -name '*.json' | xargs rm -f ".format(path=path))
-    print('Finish: clean up all `*.json` finish!')
+    print('Finish: clean up all `*.json` !')
 
 
 def create_info():

@@ -11,10 +11,19 @@ pip install emanual
 
 Usage
 -----
+
+create info.json
 ```shell
 cd path/to/md-xxx
-emanual create //create info.json
+emanual create
 ````
+
+clean up add `*.json`
+```shell
+emanual clean
+```
+
+
 
 Development
 -----------

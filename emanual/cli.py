@@ -29,6 +29,13 @@ def create_info():
     """
     make.create_info()
 
+@main.command('clean')
+def cleanup_info():
+    """
+    remove all *.json
+    """
+    make.clean_up()
+
 
 @main.command('server')
 @click.option('--port', default=8000, help='port to listen')
