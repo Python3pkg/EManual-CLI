@@ -45,3 +45,12 @@ def server(port):
     """
     import os
     os.system('python -m SimpleHTTPServer %s' % port)
+
+
+@main.command('dist')
+@click.argument('lang', )
+def dist(lang):
+    """
+    Distributing the markdown
+    """
+    make.dist_zip('java')

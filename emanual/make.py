@@ -22,6 +22,7 @@ info_tpl = {
 
 root = Path('./markdown')
 
+
 def check():
     """
     检查是否存在'./markdown'
@@ -61,6 +62,7 @@ def clean_up(path='./markdown'):
     :param path: 清除目录
     """
     import os
+
     os.system("find {path} -name '*.json' | xargs rm -f ".format(path=path))
     print('Finish: clean up all `*.json` !')
 
@@ -70,5 +72,23 @@ def create_info():
     check()
     gen_info(root)
     print('Finish: generate info.json')
+
+
+def dist_zip(lang):
+    import os
+    cwd = os.getcwd()
+    dest = os.path.join(cwd, 'dist')
+    if not os.path.exists(dest):
+        os.makedirs(dest)
+
+    cmds = [
+        'cp -r %s %s ' % (os.path.join(cwd, 'markdown'), os.path.join(dest, lang)),
+        'cd %s' % dest,
+        'zip -q -r %s.zip %s' % (lang, lang),
+        'rm -r %s' % lang
+    ]
+    os.system(' && '.join(cmds))
+    print('Finish dist')
+
 
 
