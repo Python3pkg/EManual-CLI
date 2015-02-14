@@ -53,4 +53,4 @@ def dist(lang):
     """
     Distributing the markdown
     """
-    make.dist_zip('java')
+    make.dist_zip(lang)
