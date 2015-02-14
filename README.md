@@ -12,17 +12,17 @@ pip install emanual
 Usage
 -----
 
-create info.json
+1. 创建`info.json` & 把中文文件名变为拼音
 ```shell
 cd path/to/md-xxx
 emanual create
+// `./dist/markdown`就是生成的内容
 ````
 
-clean up add `*.json`
+2. 生成lang.zip
 ```shell
-emanual clean
+emanual dist {lang} //lang为指定的语言，小写
 ```
-
 
 
 Development

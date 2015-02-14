@@ -21,7 +21,8 @@ setup(
     include_package_data=True,
     install_requires=[
         'click',
-        'path.py'
+        'path.py',
+        'pypinyin'
     ],
     entry_points={
         'console_scripts' : [
