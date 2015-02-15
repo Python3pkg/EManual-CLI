@@ -23,11 +23,12 @@ def main():
 
 
 @main.command('create')
-def create_info():
+@click.argument('lang',)
+def create_info(lang):
     """
-    Create the info.json File
+    Create the info.json File for Given Lang 
     """
-    make.create_info()
+    make.create_info(lang)
 
 
 @main.command('server')

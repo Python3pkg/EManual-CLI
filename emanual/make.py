@@ -26,7 +26,7 @@ info_tpl = {
 
 raw_md_root = Path('./markdown')
 dist_root = Path('./dist')
-info_dist_root = Path('./dist/markdown')
+info_dist_root = './dist/{lang}'
 
 
 def check_path():
@@ -97,23 +97,25 @@ def dirs_pinyin(p):
 
 
 
-def create_info():
+def create_info(lang):
     """
     创建生成info.json文件以及把中文文件名变为拼音
     :return:
     """
     check_path()
-    if Path(info_dist_root).exists():
-        os.system('rm -fr %s' % info_dist_root)
-    Path.copytree(raw_md_root, info_dist_root)
-    gen_info(info_dist_root)
-    dirs_pinyin(info_dist_root)
-    print('Finish: generate info.json, please checkout `%s`' % info_dist_root)
+    lang_info_dist_root = info_dist_root.format(lang=lang)
+    p = Path(lang_info_dist_root)
+    if p.exists():
+        os.system('rm -fr %s' % lang_info_dist_root)
+    Path.copytree(raw_md_root, p)
+    gen_info(p)
+    dirs_pinyin(p)
+    print('Finish: generate info.json, please checkout `%s`' % p)
 
 
 def dist_zip(lang):
     """
-    压缩create后在dist/markdown下的文件夹到-> `{lang}.zip`
+    压缩create后在dist/{lang}下的文件夹到-> `{lang}.zip`
     :param lang: 语言
     """
     import os
@@ -123,10 +125,8 @@ def dist_zip(lang):
         os.makedirs(dest)
 
     cmds = [
-        'cp -r %s %s ' % (os.path.join(dest, 'markdown'), os.path.join(dest, lang)),
         'cd %s' % dest,
         'zip -q -r %s.zip %s/' % (lang, lang),
-        'rm -r %s' % lang
     ]
     os.system(' && '.join(cmds))
     print('Finish dist')
