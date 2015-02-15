@@ -51,7 +51,7 @@ def gen_info(p):
     info['name'] = ''.join(lazy_pinyin(p.name))
     info['rname'] = p.name
     #p.rename(info['name'])# 路径也变为拼音
-    info['path'] = ''.join(lazy_pinyin(p.lstrip('./')))
+    info['path'] = ''.join(lazy_pinyin(p.lstrip(dist_root)))
     info['mtime'] = p.mtime
     for f in p.listdir():
         _file = copy.deepcopy(file_tpl)
