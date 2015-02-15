@@ -66,7 +66,7 @@ dependency
 
 - [click](https://github.com/mitsuhiko/click)
 - [path.py](https://github.com/jaraco/path.py)
-- [pypinyin}(https://github.com/smallqiao/pypinyin)
+- [pypinyin](https://github.com/smallqiao/pypinyin)
 
 
 License
