@@ -23,7 +23,7 @@ def main():
 
 
 @main.command('create')
-@click.argument('lang',)
+@click.argument('lang', )
 def create_info(lang):
     """
     Create the info.json File for Given Lang 
@@ -38,6 +38,7 @@ def server(port):
     Server to preview the markdown files
     """
     import os
+
     os.system('python -m SimpleHTTPServer %s' % port)
 
 
@@ -48,3 +49,13 @@ def dist(lang):
     Distributing the markdown
     """
     make.dist_zip(lang)
+
+
+@main.command('newsfeeds')
+@click.argument('update', default=True)
+def newsfeeds(update):
+    """
+    The cli for NewsFeeds module
+    """
+    if update:
+        make.newsfeeds_update()

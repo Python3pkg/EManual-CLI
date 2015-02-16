@@ -22,7 +22,9 @@ setup(
     install_requires=[
         'click',
         'path.py',
-        'pypinyin'
+        'pypinyin',
+        'mistune',
+        'beautifulsoup4'
     ],
     entry_points={
         'console_scripts' : [
