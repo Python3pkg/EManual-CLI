@@ -12,6 +12,11 @@ def is_markdown_file(filename=''):
 
 
 def read_file(file_path):
+    """
+    读取文件
+    :param file_path: 文件路径
+    :return: string
+    """
     import codecs
 
     with codecs.open(file_path, mode='r', encoding='utf-8') as f:
