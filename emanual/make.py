@@ -72,16 +72,21 @@ def gen_info(p):
 
 def clean_up(path='./markdown'):
     """
-    清除目录下的所有`*.json文件`
+    清除目录下:
+    1. `*.json文件`
+    2. `*.*~` linux下临时文件
+    3. `.DS_Store` OS X 下文件描述文件
     :param path: 清除目录
     """
     os.system("find {path} -name '*.json' | xargs rm -f ".format(path=path))
-    print('Finish: clean up all `*.json` !')
+    os.system("find {path} -name '*.*~' | xargs rm -f ".format(path=path))
+    os.system("find {path} -name '.DS_Store' | xargs rm -f ".format(path=path))
+    print('Finish: clean up !')
 
 
 def dirs_pinyin(p):
     """
-    将指定的目录下得所有
+    将指定的目录下得所有中文文件名转换拼音
     :param p:  给定目录
     """
     if p.isfile():
@@ -102,6 +107,7 @@ def create_info(lang):
     创建生成info.json文件以及把中文文件名变为拼音
     :return:
     """
+    clean_up()
     check_path()
     lang_info_dist_root = info_dist_root.format(lang=lang)
     p = Path(lang_info_dist_root)
