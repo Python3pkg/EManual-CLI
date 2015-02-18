@@ -93,7 +93,7 @@ def dirs_pinyin(p):
         for x in p.listdir():
             dirs_pinyin(x)
             if x.isdir():
-                pinyin = ''.join(lazy_pinyin(x.abspath()))
+                pinyin = ''.join(lazy_pinyin(x.name))
                 Path.move(x.abspath(), os.path.join(x.dirname(), pinyin))
 
 
