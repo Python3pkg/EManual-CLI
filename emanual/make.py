@@ -171,7 +171,7 @@ def newsfeeds_update():
         files.reverse()
         for page in range(1, len(files) / sigle_page + 2):
             _data = []
-            for x in files[(page - 1) * sigle_page: page * sigle_page + 1]:
+            for x in files[(page - 1) * sigle_page: page * sigle_page]:
                 _tmp = copy.deepcopy(tpl)
                 _tmp['name'] = ''.join(lazy_pinyin(x.name))
                 _tmp['rname'] = x.name
