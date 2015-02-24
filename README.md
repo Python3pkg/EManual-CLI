@@ -35,11 +35,20 @@ $ emanual dist {lang} //lang为指定的语言，小写
 $ emanual newsfeeds update
 ```
 
+## 文件名处理
+
+```shell
+cd path/to/md-xxx/markdown //通常修改这目录
+emanual filename check [path=.] //检查路径目录(默认是当前)下的文件名是否存在中文字符的标点
+emanual filename fix [path=.]   //修复存在中文标点的
+
+```
+
 
 Development
 -----------
 
-1. 使用virtualenv,未安装则`pip install virtualenv`
+#### 1. 使用virtualenv,未安装则`pip install virtualenv`
 ```shell
 //创建虚拟的python开发环境
 $ virtualenv env
@@ -51,12 +60,12 @@ $ source env/bin/activate
 $ activate
 ```
 
-2. 安装依赖
+#### 2. 安装依赖
 ```
 $ pip install -r requirements-dev.txt
 ```
 
-3. 动态加载当前库
+#### 3. 动态加载当前库
 ```shell
 $ cd path/to/EManual-CLI
 $ pip install --edit .
@@ -64,7 +73,7 @@ $ pip install --edit .
 $ pip install -e .
 ```
 
-4. 安装测试
+#### 4. 安装测试
 ```shell
 $ python setup.py install
 $ emanual --version
