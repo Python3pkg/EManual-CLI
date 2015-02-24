@@ -131,6 +131,7 @@ def dist_zip(lang):
 
     cmds = [
         'cd %s' % dest,
+        'rm %s.zip' % lang,
         'zip -q -r %s.zip %s/' % (lang, lang),
     ]
     os.system(' && '.join(cmds))
