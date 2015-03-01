@@ -4,5 +4,5 @@
 EManual CLI - Command Line Interface for EManual
 
 """
-__version__ = '0.4.0'
+__version__ = '0.4.1'
 __author__ = 'Jayin Ton'

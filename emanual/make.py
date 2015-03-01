@@ -129,9 +129,12 @@ def dist_zip(lang):
     if not os.path.exists(dest):
         os.makedirs(dest)
 
+    # the zip
+    zip_file = os.path.join(dest, '%s.zip' % lang)
+    if os.path.exists(zip_file):
+        os.system('rm %s' % zip_file)
     cmds = [
         'cd %s' % dest,
-        'rm %s.zip' % lang,
         'zip -q -r %s.zip %s/' % (lang, lang),
     ]
     os.system(' && '.join(cmds))
