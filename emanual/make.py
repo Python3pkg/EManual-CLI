@@ -191,6 +191,37 @@ def newsfeeds_update():
     print('Finish newsfeeds update!\ntotal:%d' % len(files))
 
 
+def init_module(module_name, path='.'):
+    """
+    初始化一个模块
+    :param module_name:  模块名
+    :param path: 根目录 默认 .
+    :return:
+    """
+    TYPE_FILE = 'file'
+    TYPE_DIRECTORY = 'directory'
+    mks = [
+        {'name': 'img', 'type': TYPE_DIRECTORY},
+        {'name': 'img/.gitkeep', 'type': TYPE_FILE},
+        {'name': 'dist', 'type': TYPE_DIRECTORY},
+        {'name': 'dist/.gitkeep', 'type': TYPE_FILE},
+        {'name': 'markdown', 'type': TYPE_DIRECTORY},
+        {'name': 'markdown/.gitkeep', 'type': TYPE_FILE},
+        {'name': 'README.md', 'type': TYPE_FILE},
+    ]
+    module_name = u'md-' + module_name
+    os.system('mkdir %s' % module_name)
+    for x in mks:
+        if x['type'] == TYPE_FILE:
+            print('touch %s' % os.path.join(path, module_name, x['name']))
+            os.system('touch %s' % os.path.join(path, module_name, x['name']))
+        else:
+            print('mkdir %s' % os.path.join(path, module_name, x['name']))
+            os.system('mkdir %s' % os.path.join(path, module_name, x['name']))
+
+
+
+
 
 
 

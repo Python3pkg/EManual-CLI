@@ -78,6 +78,15 @@ def filename_check(operate, path):
         filename.fix(path)
 
 
+@main.command('init')
+@click.argument('name')
+def init_module(name):
+    """
+    init a new module
+    """
+    make.init_module(name)
+
+
 
 
 
