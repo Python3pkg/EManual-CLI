@@ -16,6 +16,11 @@ Usage
 
 ## 语言资料模块
 
+0. 初始化模块
+```shell
+$ emanual init {module name}
+```
+
 1. 创建`info.json` & 把中文文件名变为拼音
 ```shell
 $ cd path/to/md-xxx
