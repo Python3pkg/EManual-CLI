@@ -62,7 +62,7 @@ $ virtualenv env
 $ source env/bin/activate
 
 //退出
-$ activate
+$ deactivate
 ```
 
 #### 2. 安装依赖
