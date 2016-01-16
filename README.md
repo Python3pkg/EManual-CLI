@@ -84,6 +84,10 @@ $ python setup.py install
 $ emanual --version
 ```
 
+### 分发Python 包
+
+参考[Python:打包和分发你的项目](http://www.jayinton.com/blog/index.html?tech/python/Packaging-and-Distributing-Projects.md)
+
 dependency
 --
 

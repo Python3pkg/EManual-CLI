@@ -41,24 +41,22 @@ def check(path='.', _echo=True):
     }
 
     def walk(p):
-        if p.isfile() and _.is_markdown_file(p):
-            # 检查->改名
-            _name = p.name
-            for prounction in _Chinese_Punction:
-                if prounction in _name:
-                    # 替换标点
-                    _name = _name.replace(prounction, C2E[prounction])
+        # 检查->改名
+        _name = p.name
+        for prounction in _Chinese_Punction:
+            if prounction in _name:
+                # 替换标点
+                _name = _name.replace(prounction, C2E[prounction])
 
-            if _name != p.name:
-                rename = copy.deepcopy(tpl)
-                rename['src'] = p.abspath()
-                rename['dest'] = os.path.join(os.path.dirname(p.abspath()), _name)
-                result.append(rename)
+        if _name != p.name:
+            rename = copy.deepcopy(tpl)
+            rename['src'] = p.abspath()
+            rename['dest'] = os.path.join(os.path.dirname(p.abspath()), _name)
+            result.append(rename)
 
-        elif p.isdir():
+        if p.isdir():
             for f in p.listdir():
                 walk(f)
-
     walk(path)
 
     if _echo:
@@ -77,7 +75,7 @@ def fix(path):
     :param path:  给定路径
     """
 
-    result = check(path, False)
+    result = check(path, True)
 
     for x in result:
         click.echo('mv %s %s' % (x['src'], x['dest']))
