@@ -5,7 +5,7 @@ from pypinyin import lazy_pinyin
 import copy
 import json
 import os
-import _
+from . import _
 
 MODE_TREE = 'tree'
 MODE_FILE = 'file'
@@ -116,7 +116,7 @@ def create_info(lang):
     Path.copytree(raw_md_root, p)
     gen_info(p)
     dirs_pinyin(p)
-    print('Finish: generate info.json, please checkout `%s`' % p)
+    print(('Finish: generate info.json, please checkout `%s`' % p))
 
 
 def dist_zip(lang):
@@ -188,7 +188,7 @@ def newsfeeds_update():
     get_files(newsfeeds_root)
     gen_page_info(files)
     dirs_pinyin(newsfeeds_root)
-    print('Finish newsfeeds update!\ntotal:%d' % len(files))
+    print(('Finish newsfeeds update!\ntotal:%d' % len(files)))
 
 
 def init_module(module_name, path='.'):
@@ -209,14 +209,14 @@ def init_module(module_name, path='.'):
         {'name': 'markdown/.gitkeep', 'type': TYPE_FILE},
         {'name': 'README.md', 'type': TYPE_FILE},
     ]
-    module_name = u'md-' + module_name
+    module_name = 'md-' + module_name
     os.system('mkdir %s' % module_name)
     for x in mks:
         if x['type'] == TYPE_FILE:
-            print('touch %s' % os.path.join(path, module_name, x['name']))
+            print(('touch %s' % os.path.join(path, module_name, x['name'])))
             os.system('touch %s' % os.path.join(path, module_name, x['name']))
         else:
-            print('mkdir %s' % os.path.join(path, module_name, x['name']))
+            print(('mkdir %s' % os.path.join(path, module_name, x['name'])))
             os.system('mkdir %s' % os.path.join(path, module_name, x['name']))
 
 

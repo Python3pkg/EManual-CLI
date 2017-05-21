@@ -38,9 +38,9 @@ def get_markdown_p(content='', word=30):
 
     p = soup.find('p')
 
-    if len(p.text.split(u'。')) > 0:
-        return p.text.split(u'。')[0]
-    elif len(p.text.split(u'.')) > 0:
+    if len(p.text.split('。')) > 0:
+        return p.text.split('。')[0]
+    elif len(p.text.split('.')) > 0:
         return p.text.split()
     return p.text[0:word]
 

@@ -2,7 +2,7 @@
 __author__ = 'jayin'
 
 from path import Path
-import _
+from . import _
 import os
 import copy
 import click
@@ -10,14 +10,14 @@ import click
 # 注意文件名不能用冒号`:`，干脆直接替换成空格!
 
 _Chinese_Punction = [
-    u'！', u'“', u'”', u'；', u'《', u'》', u'。', u'、', u'，', u'【', u'】', u'（', u'）', u'？', u'：', u':'
+    '！', '“', '”', '；', '《', '》', '。', '、', '，', '【', '】', '（', '）', '？', '：', ':'
 ]
 _English_Punction = [
-    u'!', u'"', u'"', u';', u'<', u'>', u'.', u',', u',', u'[', u']', u'(', u')', u'?', u' ', u' '
+    '!', '"', '"', ';', '<', '>', '.', ',', ',', '[', ']', '(', ')', '?', ' ', ' '
 ]
 
 # Chinese 2 English
-C2E = dict(map(lambda x, y: [x, y], _Chinese_Punction, _English_Punction))
+C2E = dict(list(map(lambda x, y: [x, y], _Chinese_Punction, _English_Punction)))
 
 
 def check(path='.', _echo=True):

@@ -71,7 +71,7 @@ def filename_check(operate, path):
     $ emanual filename check [path=.]:check out if given path(defualt is current work path `.`) contains Chinese punctuation
     $ emanual filename fix  [path=.]: turn Chinese punctuation to English punctuation
     """
-    import filename
+    from . import filename
     if operate == 'check':
         filename.check(path)
     if operate == 'fix':
